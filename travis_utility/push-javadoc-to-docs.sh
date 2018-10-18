@@ -12,6 +12,12 @@ ant jar
 ant javadoc
 
 
+pwd
+ls -al
+
+pwd
+ls -al lib
+
 export DIR=$(pwd)
 
 
