@@ -86,14 +86,14 @@ public class ExpressionCpuLoad extends AbstractExpression
     /** {@inheritDoc} */
     @Override
     public void init(Map<String, String> config) {
-        threshold = Double.parseDouble(config.get("threshold"));
+        _threshold = Double.parseDouble(config.get("threshold"));
     }
 
     /** {@inheritDoc} */
     @Override
     public Map<String, String> getConfig() {
         Map<String, String> config = new HashMap<>();
-        config.put("threshold", Double.toString(threshold));
+        config.put("threshold", Double.toString(_threshold));
         return config;
     }
 
