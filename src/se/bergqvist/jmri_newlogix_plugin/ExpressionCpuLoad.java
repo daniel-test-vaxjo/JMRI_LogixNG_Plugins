@@ -14,7 +14,7 @@ import jmri.implementation.AbstractExpression;
 import jmri.jmrit.newlogix.ExpressionPluginInterface;
 
 /**
- * XOR of two expressions.
+ * Check if the cpu load is above a certain threshold.
  * 
  * @author Daniel Bergqvist Copyright(C) 2018
  */
@@ -54,16 +54,19 @@ public class ExpressionCpuLoad extends AbstractExpression
         return value;
     }
 
+    /** {@inheritDoc} */
     @Override
     public NewLogixCategory getCategory() {
         return NewLogixCategory.OTHER;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean isExternal() {
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean evaluate() {
         try {
@@ -73,21 +76,25 @@ public class ExpressionCpuLoad extends AbstractExpression
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public void reset() {
         // Call reset() on children.
     }
 
+    /** {@inheritDoc} */
     @Override
     public void init(Map<String, String> map) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /** {@inheritDoc} */
     @Override
     public Map<String, String> getConfig() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    /** {@inheritDoc} */
     @Override
     public String getConfiguratorClassName() {
         return "se.bergqvist.jmri_newlogix_plugin.Configurator";
