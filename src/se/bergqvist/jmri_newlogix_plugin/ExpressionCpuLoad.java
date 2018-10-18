@@ -1,6 +1,7 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
 import java.lang.management.ManagementFactory;
+import java.util.HashMap;
 import java.util.Map;
 import javax.management.Attribute;
 import javax.management.AttributeList;
@@ -21,7 +22,7 @@ import jmri.jmrit.newlogix.ExpressionPluginInterface;
 public class ExpressionCpuLoad extends AbstractExpression
         implements ExpressionPluginInterface {
 
-    private double threshold = 0.33;
+    private double _threshold = 0.33;
     
     public ExpressionCpuLoad() {
         super("Daniel");
@@ -70,7 +71,7 @@ public class ExpressionCpuLoad extends AbstractExpression
     @Override
     public boolean evaluate() {
         try {
-            return (getCpuLoad() > threshold);
+            return (getCpuLoad() > _threshold);
         } catch (MalformedObjectNameException | InstanceNotFoundException | ReflectionException e) {
             return false;
         }
@@ -84,14 +85,16 @@ public class ExpressionCpuLoad extends AbstractExpression
 
     /** {@inheritDoc} */
     @Override
-    public void init(Map<String, String> map) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void init(Map<String, String> config) {
+        threshold = Double.parseDouble(config.get("threshold"));
     }
 
     /** {@inheritDoc} */
     @Override
     public Map<String, String> getConfig() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Map<String, String> config = new HashMap<>();
+        config.put("threshold", Double.toString(threshold));
+        return config;
     }
 
     /** {@inheritDoc} */
