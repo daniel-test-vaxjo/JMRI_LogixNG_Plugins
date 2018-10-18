@@ -53,7 +53,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/JMRI_NewLogixPlugins" ] && [ "$TRAVIS_PU
   ant clean
   ant
   ant test
-  ant javadoc_develop
+  ant javadoc
   mv dist/javadoc dist/javadoc_develop
   cd $HOME/temp/JMRI_NewLogixPlugins.Documentation/docs
   rm -Rf javadoc_develop
