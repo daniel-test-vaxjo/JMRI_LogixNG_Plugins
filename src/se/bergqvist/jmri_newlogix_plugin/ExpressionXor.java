@@ -3,7 +3,7 @@ package se.bergqvist.jmri_newlogix_plugin;
 import java.util.Map;
 import jmri.NewLogixCategory;
 import jmri.implementation.AbstractExpression;
-import jmri.jmrit.newlogix.ExpressionPluginInterface;
+import jmri.NewLogixExpressionPlugin;
 
 /**
  * XOR of two expressions.
@@ -11,7 +11,7 @@ import jmri.jmrit.newlogix.ExpressionPluginInterface;
  * @author Daniel Bergqvist Copyright(C) 2018
  */
 public class ExpressionXor extends AbstractExpression
-        implements ExpressionPluginInterface {
+        implements NewLogixExpressionPlugin {
 
     public ExpressionXor() {
         super("Daniel");

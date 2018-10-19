@@ -3,14 +3,15 @@ package se.bergqvist.jmri_newlogix_plugin;
 import java.util.Map;
 import jmri.NewLogixCategory;
 import jmri.implementation.AbstractAction;
-import jmri.jmrit.newlogix.ActionPluginInterface;
+import jmri.NewLogixActionPlugin;
 
 /**
  * Hides and shows a panel
  * 
  * @author Daniel Bergqvist Copyright(C) 2018
  */
-public class ActionHideAndShowPanel extends AbstractAction implements ActionPluginInterface {
+public class ActionHideAndShowPanel extends AbstractAction
+        implements NewLogixActionPlugin {
 
     public ActionHideAndShowPanel() throws BadSystemNameException {
         super("Daniel");

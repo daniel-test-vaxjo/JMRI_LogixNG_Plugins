@@ -27,3 +27,4 @@ hs_err_pid*
 
 # Allow these files
 !/lib/jmri.jar
+!/lib/org-openide-util-lookup-RELEASE82.jar

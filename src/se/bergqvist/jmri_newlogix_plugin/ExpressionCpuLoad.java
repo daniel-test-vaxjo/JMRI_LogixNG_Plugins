@@ -12,7 +12,7 @@ import javax.management.ObjectName;
 import javax.management.ReflectionException;
 import jmri.NewLogixCategory;
 import jmri.implementation.AbstractExpression;
-import jmri.jmrit.newlogix.ExpressionPluginInterface;
+import jmri.NewLogixExpressionPlugin;
 
 /**
  * Check if the cpu load is above a certain threshold.
@@ -20,7 +20,7 @@ import jmri.jmrit.newlogix.ExpressionPluginInterface;
  * @author Daniel Bergqvist Copyright(C) 2018
  */
 public class ExpressionCpuLoad extends AbstractExpression
-        implements ExpressionPluginInterface {
+        implements NewLogixExpressionPlugin {
 
     private double _threshold = 0.33;
     
