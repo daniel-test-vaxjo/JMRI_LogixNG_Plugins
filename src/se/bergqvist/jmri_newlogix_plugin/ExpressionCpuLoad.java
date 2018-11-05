@@ -10,12 +10,25 @@ import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
-import jmri.NewLogixCategory;
-import jmri.implementation.AbstractExpression;
-import jmri.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.Category;
+import jmri.jmrit.newlogix.AbstractExpression;
+import jmri.jmrit.newlogix.FemaleSocket;
 
 /**
  * Check if the cpu load is above a certain threshold.
+ * 
+ * How to get percentage of CPU usage of OS from java
+ * https://stackoverflow.com/questions/18489273/how-to-get-percentage-of-cpu-usage-of-os-from-java/21962037
+ * 
+ * java cpu usage monitoring
+ * https://stackoverflow.com/questions/2062440/java-cpu-usage-monitoring
+ * 
+ * Class ManagementFactory
+ * https://docs.oracle.com/javase/7/docs/api/java/lang/management/ManagementFactory.html
+ * 
+ * Interface OperatingSystemMXBean
+ * https://docs.oracle.com/javase/7/docs/api/java/lang/management/OperatingSystemMXBean.html
  * 
  * @author Daniel Bergqvist Copyright(C) 2018
  */
@@ -57,8 +70,8 @@ public class ExpressionCpuLoad extends AbstractExpression
 
     /** {@inheritDoc} */
     @Override
-    public NewLogixCategory getCategory() {
-        return NewLogixCategory.OTHER;
+    public Category getCategory() {
+        return Category.OTHER;
     }
 
     /** {@inheritDoc} */
@@ -101,6 +114,16 @@ public class ExpressionCpuLoad extends AbstractExpression
     @Override
     public String getConfiguratorClassName() {
         return "se.bergqvist.jmri_newlogix_plugin.Configurator";
+    }
+
+    @Override
+    public FemaleSocket getChild(int i) throws IllegalArgumentException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getChildCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

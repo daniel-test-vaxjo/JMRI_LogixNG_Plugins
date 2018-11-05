@@ -4,10 +4,12 @@ import java.util.AbstractMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import jmri.NewLogixCategory;
-import jmri.NewLogixPluginFactory;
-import jmri.NewLogixActionPlugin;
-import jmri.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.NewLogixActionPlugin;
+import jmri.jmrit.newlogix.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.Category;
+import jmri.jmrit.newlogix.AbstractExpression;
+import jmri.jmrit.newlogix.FemaleSocket;
+import jmri.jmrit.newlogix.NewLogixPluginFactory;
 import org.openide.util.lookup.ServiceProvider;
 
 /**
@@ -25,17 +27,17 @@ import org.openide.util.lookup.ServiceProvider;
 public class Factory implements NewLogixPluginFactory {
 
     @Override
-    public Set<Map.Entry<NewLogixCategory, Class<? extends NewLogixExpressionPlugin>>> getExpressionClasses() {
-        Set<Map.Entry<NewLogixCategory, Class<? extends NewLogixExpressionPlugin>>> expressionClasses = new HashSet<>();
-        expressionClasses.add(new AbstractMap.SimpleEntry<>(NewLogixCategory.OTHER, ExpressionCpuLoad.class));
-        expressionClasses.add(new AbstractMap.SimpleEntry<>(NewLogixCategory.COMMON, ExpressionXor.class));
+    public Set<Map.Entry<Category, Class<? extends NewLogixExpressionPlugin>>> getExpressionClasses() {
+        Set<Map.Entry<Category, Class<? extends NewLogixExpressionPlugin>>> expressionClasses = new HashSet<>();
+        expressionClasses.add(new AbstractMap.SimpleEntry<>(Category.OTHER, ExpressionCpuLoad.class));
+        expressionClasses.add(new AbstractMap.SimpleEntry<>(Category.COMMON, ExpressionXor.class));
         return expressionClasses;
     }
 
     @Override
-    public Set<Map.Entry<NewLogixCategory, Class<? extends NewLogixActionPlugin>>> getActionClasses() {
-        Set<Map.Entry<NewLogixCategory, Class<? extends NewLogixActionPlugin>>> actionClasses = new HashSet<>();
-        actionClasses.add(new AbstractMap.SimpleEntry<>(NewLogixCategory.OTHER, ActionHideAndShowPanel.class));
+    public Set<Map.Entry<Category, Class<? extends NewLogixActionPlugin>>> getActionClasses() {
+        Set<Map.Entry<Category, Class<? extends NewLogixActionPlugin>>> actionClasses = new HashSet<>();
+        actionClasses.add(new AbstractMap.SimpleEntry<>(Category.OTHER, ActionHideAndShowPanel.class));
         return actionClasses;
     }
 

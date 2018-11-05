@@ -1,9 +1,10 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
 import java.util.Map;
-import jmri.NewLogixCategory;
-import jmri.implementation.AbstractExpression;
-import jmri.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.NewLogixExpressionPlugin;
+import jmri.jmrit.newlogix.Category;
+import jmri.jmrit.newlogix.AbstractExpression;
+import jmri.jmrit.newlogix.FemaleSocket;
 
 /**
  * XOR of two expressions.
@@ -24,8 +25,8 @@ public class ExpressionXor extends AbstractExpression
     }
 
     @Override
-    public NewLogixCategory getCategory() {
-        return NewLogixCategory.OTHER;
+    public Category getCategory() {
+        return Category.OTHER;
     }
 
     @Override
@@ -56,6 +57,16 @@ public class ExpressionXor extends AbstractExpression
     @Override
     public String getConfiguratorClassName() {
         return "se.bergqvist.jmri_newlogix_plugin.Configurator";
+    }
+
+    @Override
+    public FemaleSocket getChild(int i) throws IllegalArgumentException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getChildCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

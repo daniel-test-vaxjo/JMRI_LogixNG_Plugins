@@ -1,9 +1,10 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
 import java.util.Map;
-import jmri.NewLogixCategory;
-import jmri.implementation.AbstractAction;
-import jmri.NewLogixActionPlugin;
+import jmri.jmrit.newlogix.NewLogixActionPlugin;
+import jmri.jmrit.newlogix.Category;
+import jmri.jmrit.newlogix.AbstractAction;
+import jmri.jmrit.newlogix.FemaleSocket;
 
 /**
  * Hides and shows a panel
@@ -18,8 +19,8 @@ public class ActionHideAndShowPanel extends AbstractAction
     }
 
     @Override
-    public NewLogixCategory getCategory() {
-        return NewLogixCategory.OTHER;
+    public Category getCategory() {
+        return Category.OTHER;
     }
 
     @Override
@@ -60,6 +61,16 @@ public class ActionHideAndShowPanel extends AbstractAction
     @Override
     public String getConfiguratorClassName() {
         return "se.bergqvist.jmri_newlogix_plugin.Configurator";
+    }
+
+    @Override
+    public FemaleSocket getChild(int i) throws IllegalArgumentException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getChildCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

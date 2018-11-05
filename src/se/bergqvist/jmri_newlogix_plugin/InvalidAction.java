@@ -1,10 +1,11 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
-import jmri.NewLogixCategory;
-import jmri.implementation.AbstractAction;
+import jmri.jmrit.newlogix.Category;
+import jmri.jmrit.newlogix.AbstractAction;
+import jmri.jmrit.newlogix.FemaleSocket;
 
 /**
- * This class implements NewLogixAction but not ActionPluginInterface
+ * This class implements Action but not ActionPluginInterface
  * and is therefore not a valid plugin.
  * 
  * @author Daniel Bergqvist Copyright(C) 2018
@@ -16,7 +17,7 @@ public class InvalidAction extends AbstractAction {
     }
 
     @Override
-    public NewLogixCategory getCategory() {
+    public Category getCategory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -42,6 +43,16 @@ public class InvalidAction extends AbstractAction {
 
     @Override
     public void abort() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FemaleSocket getChild(int i) throws IllegalArgumentException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getChildCount() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
