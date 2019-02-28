@@ -11,8 +11,8 @@ import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 import jmri.jmrit.logixng.Category;
-import jmri.jmrit.logixng.expressions.AbstractExpression;
-import jmri.jmrit.logixng.ExpressionPlugin;
+import jmri.jmrit.logixng.analogexpressions.AbstractAnalogExpression;
+import jmri.jmrit.logixng.AnalogExpressionPlugin;
 import jmri.jmrit.logixng.FemaleSocket;
 
 /**
@@ -20,8 +20,8 @@ import jmri.jmrit.logixng.FemaleSocket;
  * 
  * @author Daniel Bergqvist Copyright(C) 2018
  */
-public class ExpressionCpuLoad extends AbstractExpression
-        implements ExpressionPlugin {
+public class ExpressionCpuLoad extends AbstractAnalogExpression
+        implements AnalogExpressionPlugin {
 
     private double _threshold = 0.33;
     
@@ -35,14 +35,14 @@ public class ExpressionCpuLoad extends AbstractExpression
         System.out.format("Test%n");
     }
     
-    private double getCpuLoad() throws MalformedObjectNameException,
+    private float getCpuLoad() throws MalformedObjectNameException,
             InstanceNotFoundException, ReflectionException {
         
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
         ObjectName name = ObjectName.getInstance("java.lang:type=OperatingSystem");
         AttributeList list = mbs.getAttributes(name, new String[]{ "ProcessCpuLoad" });
         if (list.isEmpty()) {
-            return 0.0;
+            return (float) 0.0;
         }
         
         Attribute att = (Attribute)list.get(0);
@@ -50,10 +50,10 @@ public class ExpressionCpuLoad extends AbstractExpression
         
         // usually takes a couple of seconds before we get real values
         if (value < 0.0) {
-            return 0.0;
+            return (float) 0.0;
         }
         
-        return value;
+        return value.floatValue();
     }
 
     /** {@inheritDoc} */
@@ -70,18 +70,12 @@ public class ExpressionCpuLoad extends AbstractExpression
 
     /** {@inheritDoc} */
     @Override
-    public boolean evaluate() {
+    public float evaluate() {
         try {
-            return (getCpuLoad() > _threshold);
+            return getCpuLoad();
         } catch (MalformedObjectNameException | InstanceNotFoundException | ReflectionException e) {
-            return false;
+            return (float) 0.0;
         }
-    }
-
-    /** {@inheritDoc} */
-    @Override
-    public void reset() {
-        // Call reset() on children.
     }
 
     /** {@inheritDoc} */
