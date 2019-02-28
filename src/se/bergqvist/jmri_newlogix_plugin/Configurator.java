@@ -1,7 +1,8 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
+import java.util.Map;
 import javax.swing.JPanel;
-import jmri.jmrit.newlogix.swing.PluginConfiguratorInterface;
+import jmri.jmrit.logixng.swing.PluginConfiguratorInterface;
 
 /**
  * A configurator for the plugins in this class.
@@ -11,12 +12,17 @@ import jmri.jmrit.newlogix.swing.PluginConfiguratorInterface;
 public class Configurator implements PluginConfiguratorInterface {
 
     @Override
-    public JPanel getConfigPanel() {
+    public JPanel getConfigPanel(String string) throws IllegalArgumentException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updateConfigFromPanel(JPanel pnl) {
+    public JPanel getConfigPanel(String string, Map<String, String> map) throws IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Map<String, String> getConfigFromPanel(JPanel pnl) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

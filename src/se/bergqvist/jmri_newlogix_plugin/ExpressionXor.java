@@ -1,9 +1,10 @@
 package se.bergqvist.jmri_newlogix_plugin;
 
 import java.util.Map;
-import jmri.NewLogixCategory;
-import jmri.implementation.AbstractExpression;
-import jmri.jmrit.newlogix.ExpressionPluginInterface;
+import jmri.jmrit.logixng.Category;
+import jmri.jmrit.logixng.expressions.AbstractExpression;
+import jmri.jmrit.logixng.ExpressionPlugin;
+import jmri.jmrit.logixng.FemaleSocket;
 
 /**
  * XOR of two expressions.
@@ -11,7 +12,7 @@ import jmri.jmrit.newlogix.ExpressionPluginInterface;
  * @author Daniel Bergqvist Copyright(C) 2018
  */
 public class ExpressionXor extends AbstractExpression
-        implements ExpressionPluginInterface {
+        implements ExpressionPlugin {
 
     public ExpressionXor() {
         super("Daniel");
@@ -24,8 +25,8 @@ public class ExpressionXor extends AbstractExpression
     }
 
     @Override
-    public NewLogixCategory getCategory() {
-        return NewLogixCategory.OTHER;
+    public Category getCategory() {
+        return Category.OTHER;
     }
 
     @Override
@@ -56,6 +57,26 @@ public class ExpressionXor extends AbstractExpression
     @Override
     public String getConfiguratorClassName() {
         return "se.bergqvist.jmri_newlogix_plugin.Configurator";
+    }
+
+    @Override
+    public String getShortDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getLongDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public FemaleSocket getChild(int i) throws IllegalArgumentException, UnsupportedOperationException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getChildCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
