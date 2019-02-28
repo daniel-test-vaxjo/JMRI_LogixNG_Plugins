@@ -17,7 +17,7 @@ export DIR=$(pwd)
 
 # Don't publish anything if the repository is a fork, or if it is a pull request or if the branch is not master
 
-if [ "$TRAVIS_REPO_SLUG" == "danielb987/JMRI_NewLogixPlugins" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_REPO_SLUG" == "danielb987/JMRI_LogixNG_Plugins" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
   echo -e "Publishing javadoc...\n"
 
@@ -29,16 +29,16 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/JMRI_NewLogixPlugins" ] && [ "$TRAVIS_PU
   # Clone the master branch of the git repository
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
-  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/JMRI_NewLogixPlugins.Documentation > /dev/null
+  git clone --quiet --branch=master https://${GH_TOKEN}@github.com/danielb987/JMRI_LogixNG_Plugins.Documentation > /dev/null
 
   # Change directory to the repository
-  cd JMRI_NewLogixPlugins.Documentation
+  cd JMRI_LogixNG_Plugins.Documentation
 
   # Change directory to the docs directory
   cd docs
 
   # Remove the old distribution folder, create a new one, and
-  # copy the JMRI_NewLogixPlugins.jar file to the distribution folder.
+  # copy the JMRI_LogixNG_Plugins.jar file to the distribution folder.
   rm -Rf distribution
   mkdir distribution
   cp $DIR/dist/*.jar distribution/
@@ -55,7 +55,7 @@ if [ "$TRAVIS_REPO_SLUG" == "danielb987/JMRI_NewLogixPlugins" ] && [ "$TRAVIS_PU
   ant test
   ant javadoc
   mv dist/javadoc dist/javadoc_develop
-  cd $HOME/temp/JMRI_NewLogixPlugins.Documentation/docs
+  cd $HOME/temp/JMRI_LogixNG_Plugins.Documentation/docs
   rm -Rf javadoc_develop
   cp -R $DIR/dist/javadoc_develop .
 
