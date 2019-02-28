@@ -1,4 +1,4 @@
-package se.bergqvist.jmri_newlogix_plugin;
+package se.bergqvist.jmri_logixng_plugin;
 
 import java.util.Map;
 import jmri.jmrit.logixng.Category;

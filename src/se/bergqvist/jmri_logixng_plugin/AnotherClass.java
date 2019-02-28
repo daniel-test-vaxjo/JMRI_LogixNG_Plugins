@@ -1,4 +1,4 @@
-package se.bergqvist.jmri_newlogix_plugin;
+package se.bergqvist.jmri_logixng_plugin;
 
 /**
  * This class is only here to demonstrate a class in the plugin jar file that
