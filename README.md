@@ -1,2 +1,2 @@
-# JMRI_NewLogixPlugins
-Example plugins for NewLogix in JMRI
+# JMRI_LogixNG_Plugins
+Example plugins for LogixNG in JMRI
